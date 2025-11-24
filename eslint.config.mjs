@@ -1,15 +1,24 @@
-import js from "@eslint/js";
-import globals from "globals";
 import { defineConfig } from "eslint/config";
-import eslintPluginPrettier from "eslint-plugin-prettier";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
+import prettier from "eslint-plugin-prettier";
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs}"],
-    plugins: { js, prettier: eslintPluginPrettier },
-    extends: ["js/recommended"],
-    rules: { "prettier/prettier": "error" },
-    languageOptions: { globals: globals.browser },
+    files: ["**/*.ts"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": typescriptEslint,
+      prettier,
+    },
+    rules: {
+      ...typescriptEslint.configs.recommended.rules,
+      "prettier/prettier": "error",
+    },
   },
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
 ]);

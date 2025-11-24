@@ -2,15 +2,19 @@
   "name": "jflow",
   "version": "1.0.0",
   "description": "**Standardize and improve your commits with a flexible and configurable CLI**",
-  "main": "index.js",
+  "main": "dist/index.ts",
+  "bin": {
+    "jflow": "./dist/index.ts"
+  },
   "directories": {
     "test": "tests"
   },
   "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts --clean",
     "test": "vitest",
     "prepare": "husky",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
     "format": "prettier --write ."
   },
   "repository": {
@@ -31,12 +35,16 @@
     "husky": "^9.1.7"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "globals": "^16.5.0",
     "prettier": "3.6.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
     "vitest": "^4.0.13"
   }
 }

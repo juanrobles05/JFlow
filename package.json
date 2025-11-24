@@ -1,0 +1,24 @@
+{
+  "name": "jflow",
+  "version": "1.0.0",
+  "description": "**Standardize and improve your commits with a flexible and configurable CLI**",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanrobles05/JFlow.git"
+  },
+  "keywords": [],
+  "author": "juanrobles05",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/juanrobles05/JFlow/issues"
+  },
+  "homepage": "https://github.com/juanrobles05/JFlow#readme"
+}
